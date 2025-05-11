@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import google.generativeai as genai
 import pyttsx3
 import speech_recognition as sr
@@ -18,6 +19,9 @@ gemini = genai.GenerativeModel("gemini-pro")
 
 # === INIT TTS ===
 engine = pyttsx3.init()
+
+os.environ["SDL_AUDIODRIVER"] = "dummy"
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"
 
 def speak(text):
     print("BOB:", text)
